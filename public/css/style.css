@@ -1,4 +1,4 @@
- /* Track */
+/* Track */
 ::-webkit-scrollbar {
   width: 10px; /* Set width for vertical scrollbar */
 }
@@ -13,11 +13,15 @@
   background: #606060; /* Change scrollbar thumb color on hover */
 }
 
-a{
+a {
   text-decoration: none;
   color: blue;
 }
 
-ul{
-    color: black;
+ul {
+  color: black;
+}
+
+li {
+  list-style: none;
 }
