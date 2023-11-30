@@ -1,0 +1,29 @@
+<%- include('partials/header') -%>
+<!-- to keep from putting header n footer on every page -->
+
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <ul class="row list-unstyled">
+      <% for(var i = 0; i < posts.length; i++) { %>
+      <li class="col-6 justify-content-between mt-5">
+        <a href="/post/<%= posts[i]._id %>">
+          <img class="img-fluid" src="<%= posts[i].image %>" />
+        </a>
+      </li>
+      <% } %>
+    </ul>
+    <div class="row justify-content-center mt-5">
+      <a class="btn btn-primary" href="/profile" style="color: white; background-color: #45526e;" >Return to Profile</a>
+    </div>
+    
+  </div>
+  <br>
+</div>
+
+<%- include('partials/footer') -%>
+
+<!-- This code will first loop through the list of posts and create an anchor tag for each post. The anchor tag will have a href attribute that points to the /profile route, with the userId of the user who made the post as the parameter.
+
+For example, if the user who made the post has a userId of 12345, the href attribute of the anchor tag will be /profile/12345.
+
+When the user clicks on the anchor tag, they will be taken to the profile page of the user who made the post. -->

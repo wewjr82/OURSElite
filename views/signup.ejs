@@ -1,0 +1,180 @@
+<%- include('partials/header') -%>
+<main class="container">
+  <div class="row justify-content-center">
+    <section class="col-6 mt-5">
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      messages.info.forEach( el => { %>
+      <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %> <% } %>
+
+      <form action="/signup" method="POST">
+        <!--Company Name-->
+        <div class="mb-3">
+          <label for="companyName" class="form-label">Company Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="companyName"
+            name="companyName"
+          />
+        </div>
+        <!--Owner-->
+        <div class="mb-3">
+          <label for="owner" class="form-label">Owner</label>
+          <input type="text" class="form-control" id="owner" name="owner" />
+        </div>
+        <!--Industry-->
+        <div class="mb-3">
+          <label for="industry">Industry:</label>
+          <select name="industry" id="industry" required>
+            <option value="" disabled selected>--Select--</option>
+            <option value="Aerospace">Aerospace</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Computer">Computer</option>
+            <option value="Education">Education</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Energy">Energy</option>
+            <option value="Food">Food</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="Mining">Mining</option>
+            <option value="Music">Music</option>
+            <option value="News Media">News Media</option>
+            <option value="Pharmaceutical">Pharmaceutical</option>
+            <option value="Telecommunication">Telecommunication</option>
+            <option value="Transport">Transport</option>
+            <option value="World Wide Web">World Wide Web</option>
+          </select>
+        </div>
+        <!--State-->
+        <div class="mb-3">
+          <label for="state">State:</label>
+          <select id="state" name="state" required>
+            <option value="" disabled selected>--Select--</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AS">American Samoa</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="GU">Guam</option>
+            <option value="HI">Hawaii</option>
+
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="MP">Northern Mariana Islands</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+
+            <option value="PA">Pennsylvania</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UM">United States Minor Outlying Islands</option>
+            <option value="VI">United States Virgin Islands</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <!--Email-->
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Company Email</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <!-- About Your Company -->
+        <div class="mb-3">
+          <label for="companyBio" class="form-label">About Your Company</label>
+          <textarea
+            class="form-control"
+            id="companyBio"
+            name="companyBio"
+            rows="4"
+          ></textarea>
+          <div id="bioHelp" class="form-text">Tell us about your company.</div>
+        </div>
+        <!--Password-->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+          />
+        </div>
+        <!--Confirm Password-->
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            name="confirmPassword"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="color: white; background-color: #45526e;">Submit</button>
+      </form>
+    </section>
+  </div>
+</main>
+<br>
+<%- include('partials/footer') -%>
