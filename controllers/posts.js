@@ -7,10 +7,6 @@ module.exports = {
   getProfile: async (req, res) => {
     console.log(req.user);
     try {
-      //Since we have a session each request (req) contains the logged-in users info: req.user
-      //console.log(req.user) to see everything
-      //Grabbing just the posts of the logged-in user
-
       const posts = await Post.find({ user: req.user.id });
 
       //Sending post data from mongodb and user data to ejs template
@@ -25,9 +21,7 @@ module.exports = {
 
   getFeed: async (req, res) => {
     try {
-      //go to our database, go to the post collection that's all stored in Post(model)variable, when we get the posts back, we want them in descending order based on the createdAt date.
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean(); //lean heps structure in a specific way, just return the object insteads of all the extras to improve speed,makes it faster
-      //Then we're gonna pass that array of objects of posts in posts variable to ejs under post:
+      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
       res.render("feed.ejs", { posts: posts });
     } catch (err) {
       console.log(err);
@@ -35,13 +29,8 @@ module.exports = {
   },
   getPost: async (req, res) => {
     try {
-      //id parameter comes from the post routes
-      //router.get("/:id", ensureAuth, postsController.getPost);
-      //http://localhost:2121/post/631a7f59a3e56acfc7da286f
-      //id === 631a7f59a3e56acfc7da286f
       const post = await Post.findById(req.params.id);
-      const comments = await Comment.find({ post: req.params.id }) //go to our comment collection n find all the comments that are tied to the post on the page, sort them then pass them to post.ejs to render)
-        // all info about post n comment will be passed into ejs, post render
+      const comments = await Comment.find({ post: req.params.id })
         .sort({ createdAt: "desc" })
         .lean();
 
@@ -60,7 +49,7 @@ module.exports = {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
       //media is stored on cloudainary - the above request responds with url to media and the media id that you will need when deleting content
-
+      
       await Post.create({
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -106,8 +95,6 @@ module.exports = {
 
   getUserProfile: async (req, res) => {
     try {
-
-      
       const user = await User.findById(req.params.userId);
 
       if (!user) {
@@ -119,10 +106,38 @@ module.exports = {
         .sort({ createdAt: "desc" })
         .lean();
 
-      res.render("userProfile.ejs", { user, posts});
+      res.render("userProfile.ejs", { user, posts });
     } catch (err) {
       console.log(err);
       res.status(500).send("Internal Server Error");
     }
   },
-};
+
+  //  filterPosts: async (req, res) => {
+  //   try {
+  //     const { state, industry } = req.query; 
+  //     let query = {};
+
+       
+  //     if (state) {
+  //       query.state = state;
+  //     }
+  //     if (industry) {
+  //       query.industry = industry;
+  //     }
+
+       
+  //     const filteredPosts = await Post.find(query);
+
+       
+  //     res.render("filtered_posts", {
+  //       selectedState: state || "All States",
+  //       selectedIndustry: industry || "All Industries",
+  //       filteredPosts: filteredPosts,
+  //     });
+  //   } catch (err) {
+  //     console.error("Error filtering posts:", err);
+  //     res.status(500).send("Error filtering posts. Please try again later.");
+  //   }
+  // },
+ };

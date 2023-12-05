@@ -1,0 +1,38 @@
+<%- include('partials/header') -%>
+
+<div class="container">
+    <h1 class="mt-3">Filtered Posts</h1>
+    
+    <!-- Display applied filters -->
+    <div class="mb-4">
+      <p><strong>Filtered by State:</strong> <%= selectedState %></p>
+      <p><strong>Filtered by Industry:</strong> <%= selectedIndustry %></p>
+    </div>
+
+    <!-- Display filtered posts -->
+    <div class="row justify-content-center">
+      <% if(filteredPosts.length > 0) { %>
+        <% filteredPosts.forEach(function(post) { %>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <img class="card-img-top" src="<%= post.image %>" alt="Post Image">
+              <div class="card-body">
+                <p class="card-text"><%= post.caption %></p>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <div class="col-12">
+          <p>No posts found matching the filters.</p>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- Return to Profile button -->
+    <div class="row justify-content-center mt-4">
+      <a class="btn btn-primary" href="/profile">Return to Profile</a>
+    </div>
+  </div>
+
+  <%- include('partials/footer') -%>
