@@ -27,6 +27,7 @@ module.exports = {
       console.log(err);
     }
   },
+
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
@@ -44,12 +45,12 @@ module.exports = {
     }
   },
 
-  createPost: async (req, res) => {
+createPost: async (req, res) => {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
       //media is stored on cloudainary - the above request responds with url to media and the media id that you will need when deleting content
-      
+
       await Post.create({
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -64,6 +65,7 @@ module.exports = {
       res.status(500).json({ message: "Error uploading file" });
     }
   },
+
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(
@@ -78,6 +80,7 @@ module.exports = {
       console.log(err);
     }
   },
+
   deletePost: async (req, res) => {
     try {
       // Find post by id
@@ -113,23 +116,20 @@ module.exports = {
     }
   },
 
-  //  filterPosts: async (req, res) => {
+  // filterPosts: async (req, res) => {
   //   try {
-  //     const { state, industry } = req.query; 
+  //     const { state, industry } = req.query;
   //     let query = {};
 
-       
-  //     if (state) {
+  //     if (state && state !== "All States") {
   //       query.state = state;
   //     }
-  //     if (industry) {
+  //     if (industry && industry !== "All Industries") {
   //       query.industry = industry;
   //     }
 
-       
   //     const filteredPosts = await Post.find(query);
 
-       
   //     res.render("filtered_posts", {
   //       selectedState: state || "All States",
   //       selectedIndustry: industry || "All Industries",
@@ -140,4 +140,6 @@ module.exports = {
   //     res.status(500).send("Error filtering posts. Please try again later.");
   //   }
   // },
- };
+
+  
+};

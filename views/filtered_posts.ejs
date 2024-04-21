@@ -10,7 +10,7 @@
     </div>
 
     <!-- Display filtered posts -->
-    <div class="row justify-content-center">
+   <div class="row justify-content-center">
       <% if(filteredPosts.length > 0) { %>
         <% filteredPosts.forEach(function(post) { %>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -27,7 +27,9 @@
           <p>No posts found matching the filters.</p>
         </div>
       <% } %>
-    </div>
+    </div> 
+
+ 
 
     <!-- Return to Profile button -->
     <div class="row justify-content-center mt-4">
@@ -35,4 +37,4 @@
     </div>
   </div>
 
-  <%- include('partials/footer') -%>
+<%- include('partials/footer') -%>
