@@ -1,28 +1,48 @@
 <%- include('partials/header') -%>
 
-<div class="container">
-  <div class="row mt-5">
-    <!-- Left Column: User Profile and Community Info -->
+<div class="container mt-5">
+  <div class="row">
+    <!-- Left Column: User Profile -->
     <div class="col-lg-4">
-      <h2 style="color: #45526e"><%= user.companyName %></h2>
-      <p><strong>Owner</strong>: <%= user.owner %></p>
-      <p><strong>Industry</strong>: <%= user.industry %></p>
-      <p><strong>State</strong>: <%= user.state %></p>
-      <p><strong>Company Email</strong>: <%= user.email %></p>
-      <p><strong>About Company</strong>: <%= user.about %></p>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #3b5998">
+            <%= user.companyName %>
+          </h5>
+          <hr />
+          <p class="card-text"><strong>Owner:</strong> <%= user.owner %></p>
+          <p class="card-text">
+            <strong>Industry:</strong> <%= user.industry %>
+          </p>
+          <p class="card-text"><strong>State:</strong> <%= user.state %></p>
+          <p class="card-text">
+            <strong>Company Email:</strong> <%= user.email %>
+          </p>
+          <p class="card-text">
+            <strong>About Company:</strong> <%= user.about %>
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Right Column: Recent Posts and Community Feed -->
     <div class="col-lg-8">
-      <div class="row justify-content-center">
-        <!-- Recent Posts Section -->
-        <div class="col-md-10">
-          <h2 class="text-center" style="color: #45526e">Recent Posts</h2>
-          <div class="row justify-content-center">
+      <!-- Recent Posts Section -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #3b5998">Recent Posts</h5>
+          <div class="row">
             <% for(var i = 0; i < posts.length; i++) { %>
             <div class="col-lg-6 mb-4">
-              <a href="/post/<%= posts[i]._id %>">
-                <img class="img-fluid" src="<%= posts[i].image %>" />
+              <a href="/post/<%= posts[i]._id %>" class="card">
+                <img
+                  class="card-img-top"
+                  src="<%= posts[i].image %>"
+                  alt="Post Image"
+                />
+                <div class="card-body">
+                  <p class="card-text"><%= posts[i].caption %></p>
+                </div>
               </a>
             </div>
             <% } %>
@@ -30,29 +50,27 @@
         </div>
       </div>
 
-      <!-- Community Feed (Centered) -->
-      <div class="col-md-12 mt-4 text-center">
-        <h2 style="color: #45526e">Community Feed</h2>
-        <a
-          class="btn btn-primary"
-          href="/feed"
-          style="color: white; background-color: #45526e"
-          >View Community Feed</a
-        >
-      </div>
-
-      <!-- Return to Profile Button -->
-      <div class="row justify-content-center mt-5">
-        <a
-          class="btn btn-primary"
-          href="/profile"
-          style="color: white; background-color: #45526e"
-          >Return to Profile</a
-        >
+      <!-- Return to Feed/Profile Section -->
+      <div class="row justify-content-center mt-5" style="margin-bottom: 20px;">
+        <div class="col-6">
+          <div class="mx-auto text-center">
+            <a
+              class="btn btn-secondary"
+              href="/profile"
+              style="color: white; background-color: #45526e"
+              >Return to Profile</a
+            >
+            <a
+              class="btn btn-secondary"
+              href="/feed"
+              style="color: white; background-color: #45526e"
+              >Return to Feed</a
+            >
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <br />
-  <!-- Including the footer -->
 </div>
+
 <%- include('partials/footer') -%>

@@ -1,80 +1,55 @@
 <%- include('partials/header') -%>
 
-<div class="container">
-  <div class="row mt-5">
-    <!-- Left Column: User Profile and Community Info -->
+<div class="container mt-5">
+  <div class="row">
+    <!-- Left Column: User Profile with Create Post -->
     <div class="col-lg-4">
-      <!-- User Information -->
-      <div>
-        <p><strong>Company Name</strong>: <%= user.companyName %></p>
-        <p><strong>Owner</strong>: <%= user.owner %></p>
-        <p><strong>Industry</strong>: <%= user.industry %></p>
-        <p><strong>State</strong>: <%= user.state %></p>
-        <p><strong>Company Email</strong>: <%= user.email %></p>
-        <p><strong>About Company</strong>: <%= user.about %></p>
-        <a
-          href="/logout"
-          class="btn"
-          style="color: white; background-color: #45526e"
-          >Logout</a
-        >
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">User Profile</h5>
+          <p class="card-text"><strong>Company Name:</strong> <%= user.companyName %></p>
+          <p class="card-text"><strong>Owner:</strong> <%= user.owner %></p>
+          <p class="card-text"><strong>Industry:</strong> <%= user.industry %></p>
+          <p class="card-text"><strong>State:</strong> <%= user.state %></p>
+          <p class="card-text"><strong>Company Email:</strong> <%= user.email %></p>
+          <p class="card-text"><strong>About Company:</strong> <%= user.about %></p>
+          <a href="/logout" class="btn btn-primary" style="background-color: #45526e;">Logout</a>
+        </div>
       </div>
-      <!-- End of User Information -->
 
-      <!-- Create Post Section -->
-      <div class="mt-5">
-        <h2 style="color: #45526e">Create Post</h2>
-        <form
-          action="/post/createPost"
-          enctype="multipart/form-data"
-          method="POST"
-        >
-          <div class="mb-3">
-            <label for="imageUpload" class="form-label">Image</label>
-            <input
-              type="file"
-              class="form-control"
-              id="imageUpload"
-              name="file"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="caption" class="form-label" style="color: #45526e"
-              >Caption</label
-            >
-            <textarea
-              class="form-control"
-              id="caption"
-              name="caption"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            class="btn"
-            style="color: white; background-color: #45526e"
-            value="Upload"
-          >
-            Submit
-          </button>
-        </form>
-        <br /><br />
+      <!-- Create Post -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-body">
+          <h5 class="card-title">Create Post</h5>
+          <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+            <div class="mb-3">
+              <label for="imageUpload" class="form-label">Image</label>
+              <input type="file" class="form-control" id="imageUpload" name="file">
+            </div>
+            <div class="mb-3">
+              <label for="caption" class="form-label">Caption</label>
+              <textarea class="form-control" id="caption" name="caption" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="background-color: #45526e;">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
 
     <!-- Right Column: Recent Posts and Community Feed -->
     <div class="col-lg-8">
-      <div class="row justify-content-center">
-        <!-- Centering the recent posts section -->
-        <!-- Recent Posts Section -->
-        <div class="col-md-10">
-          <h2 class="text-center" style="color: #45526e">Recent Posts</h2>
-          <br />
-          <div class="row justify-content-center">
+      <!-- Recent Posts -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Recent Posts</h5>
+          <div class="row">
             <% for(var i = 0; i < posts.length; i++) { %>
-            <div class="col-lg-6 mb-4">
-              <a href="/post/<%= posts[i]._id %>">
-                <img class="img-fluid" src="<%= posts[i].image %>" />
+            <div class="col-lg-4 mb-3">
+              <a href="/post/<%= posts[i]._id %>" class="card">
+                <img src="<%= posts[i].image %>" class="card-img-top" alt="Post Image">
+                <div class="card-body">
+                  <p class="card-text"><%= posts[i].caption %></p>
+                </div>
               </a>
             </div>
             <% } %>
@@ -82,26 +57,15 @@
         </div>
       </div>
 
-      <!-- Calendar Section -->
-      <div id="calendar"></div>
-
-      <!-- Community Feed (Centered) -->
-      <div class="col-md-12 mt-4 text-center">
-        <h2 style="color: #45526e">Community Feed</h2>
-        <!-- Displaying Community Posts or Activities -->
-        <!-- Add your community feed content here -->
-        <a
-          href="/feed"
-          class="btn"
-          style="color: white; background-color: #45526e"
-          >View Community Feed</a
-        >
+      <!-- Community Feed -->
+      <div class="card mt-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">Community Feed</h5>
+          <a href="/feed" class="btn btn-primary" style="background-color: #45526e;">View Community Feed</a>
+        </div>
       </div>
-      <br /><br />
     </div>
   </div>
 </div>
 
 <%- include('partials/footer') -%>
-
-
