@@ -11,7 +11,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comments");
-const filterRouter = require("./routes/filter");
+// const filterRouter = require("./routes/filter");
 
 const PORT = 9919;
 
@@ -61,7 +61,7 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
-app.use("/", filterRouter);
+// app.use("/", filterRouter);
 
 // Error handling middleware (should be placed after other route and middleware definitions)
 app.use((err, req, res, next) => {
