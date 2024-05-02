@@ -7,30 +7,65 @@
       <div class="card mb-4">
         <div class="card-body text-center">
           <h5 class="card-title">User Profile</h5>
-          <p class="card-text"><strong>Company Name:</strong> <%= user.companyName %></p>
+          <p class="card-text">
+            <strong>Company Name:</strong> <%= user.companyName %>
+          </p>
           <p class="card-text"><strong>Owner:</strong> <%= user.owner %></p>
-          <p class="card-text"><strong>Industry:</strong> <%= user.industry %></p>
+          <p class="card-text">
+            <strong>Industry:</strong> <%= user.industry %>
+          </p>
           <p class="card-text"><strong>State:</strong> <%= user.state %></p>
-          <p class="card-text"><strong>Company Email:</strong> <%= user.email %></p>
-          <p class="card-text"><strong>About Company:</strong> <%= user.about %></p>
-          <a href="/logout" class="btn btn-primary" style="background-color: #45526e;">Logout</a>
+          <p class="card-text">
+            <strong>Company Email:</strong> <%= user.email %>
+          </p>
+          <p class="card-text">
+            <strong>About Company:</strong> <%= user.about %>
+          </p>
+          <a
+            href="/logout"
+            class="btn btn-primary"
+            style="background-color: 
+#262d3d"
+            >Logout</a
+          >
         </div>
       </div>
 
       <!-- Create Post -->
-      <div class="card" style="margin-bottom: 20px;">
+      <div class="card" style="margin-bottom: 20px">
         <div class="card-body">
           <h5 class="card-title">Create Post</h5>
-          <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+          <form
+            action="/post/createPost"
+            enctype="multipart/form-data"
+            method="POST"
+          >
             <div class="mb-3">
               <label for="imageUpload" class="form-label">Image</label>
-              <input type="file" class="form-control" id="imageUpload" name="file">
+              <input
+                type="file"
+                class="form-control"
+                id="imageUpload"
+                name="file"
+              />
             </div>
             <div class="mb-3">
               <label for="caption" class="form-label">Caption</label>
-              <textarea class="form-control" id="caption" name="caption" required></textarea>
+              <textarea
+                class="form-control"
+                id="caption"
+                name="caption"
+                required
+              ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="background-color: #45526e;">Submit</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="background-color: 
+#262d3d"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>
@@ -46,7 +81,11 @@
             <% for(var i = 0; i < posts.length; i++) { %>
             <div class="col-lg-4 mb-3">
               <a href="/post/<%= posts[i]._id %>" class="card">
-                <img src="<%= posts[i].image %>" class="card-img-top" alt="Post Image">
+                <img
+                  src="<%= posts[i].image %>"
+                  class="card-img-top"
+                  alt="Post Image"
+                />
                 <div class="card-body">
                   <p class="card-text"><%= posts[i].caption %></p>
                 </div>
@@ -61,7 +100,50 @@
       <div class="card mt-4">
         <div class="card-body text-center">
           <h5 class="card-title">Community Feed</h5>
-          <a href="/feed" class="btn btn-primary" style="background-color: #45526e;">View Community Feed</a>
+          <a
+            href="/feed"
+            class="btn btn-primary"
+            style="background-color: 
+#262d3d"
+            >View Community Feed</a
+          >
+        </div>
+      </div>
+
+      <!-- Add links to new pages here -->
+      <div class="card mt-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">New Pages</h5>
+          <!-- <a
+            href="/forums"
+            class="btn btn-primary"
+            style="background-color: #45526e"
+            >Visit Forums</a
+          > -->
+
+          <a
+            href="/forums/create"
+            class="btn btn-primary"
+            style="background-color: 
+#262d3d"
+            >Create Forum</a
+          >
+          <!-- <a
+            href="/resources"
+            class="btn btn-primary"
+            style="background-color: #45526e"
+            >Explore Resources</a
+          > -->
+
+          <!-- New button -->
+          <a
+            href="/resources/create"
+            class="btn btn-primary"
+            style="background-color: 
+#262d3d"
+            >Create Resource</a
+          >
+         
         </div>
       </div>
     </div>

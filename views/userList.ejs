@@ -1,0 +1,51 @@
+<%- include('partials/header') -%>
+
+<div class="container">
+  <h1 class="mt-5">Filtered Users</h1>
+  <div class="table-responsive mt-3">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>Industry</th>
+          <th>State</th>
+          <!-- Add more table headings as needed -->
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+        <tr>
+          <td>
+            <a href="/userProfile/<%= user._id %>" target="_blank"><%= user.companyName %></a>
+          </td>
+          <td><%= user.industry %></td>
+          <td><%= user.state %></td>
+          <!-- Add more table cells with user data as needed -->
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Return to Feed/Profile Section -->
+  <div class="row justify-content-center mt-5" style="margin-bottom: 20px">
+    <div class="col-6">
+      <div class="mx-auto text-center">
+        <a
+          class="btn btn-secondary"
+          href="/profile"
+          style="color: white; background-color: #45526e"
+          >Return to Profile</a
+        >
+        <a
+          class="btn btn-secondary"
+          href="/feed"
+          style="color: white; background-color: #45526e"
+          >Return to Feed</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

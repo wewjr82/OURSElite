@@ -42,6 +42,7 @@ exports.postLogin = (req, res, next) => {
       res.redirect(req.session.returnTo || "/profile");
     });
   })(req, res, next);
+
 };
 
 exports.logout = (req, res) => {

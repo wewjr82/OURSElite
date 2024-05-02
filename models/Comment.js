@@ -14,12 +14,21 @@ const CommentSchema = new mongoose.Schema({
     ref: "Post",
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId, 
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
+  },
+  forum: {
+    // Add a reference to the Forum model
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Forum",
+    required: true, // Assuming a comment must belong to a forum
   },
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  createdAtFormatted: {
+    type: String,
   },
 });
 

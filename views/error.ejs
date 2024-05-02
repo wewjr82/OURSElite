@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Error</title>
-</head>
-<body>
-  <h1>Error</h1>
-  <p>Sorry, something went wrong.</p>
-  <% if (typeof error !== 'undefined' && error.message) { %>
-    <p><strong>Error Message:</strong> <%= error.message %></p>
-  <% } else { %>
-    <p><strong>No specific error message available.</strong></p>
-  <% } %>
-</body>
-</html>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="alert alert-danger" role="alert">
+        An error occurred: <%= error %>
+      </div>
+    </div>
+  </div>
+</div>

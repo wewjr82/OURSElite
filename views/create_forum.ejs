@@ -1,0 +1,47 @@
+<%- include('partials/header') -%>
+
+<!-- Create Forum Section -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2>Create Forum</h2>
+      <!-- Create forum form -->
+      <form action="/forums/create" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: 
+#262d3d;margin-bottom: 10px;">Create Forum</button>
+      </form>
+
+      <!-- Return to Feed/Profile Section -->
+      <div class="row justify-content-center mt-5" style="margin-bottom: 20px;">
+        <div class="col-6">
+          <div class="mx-auto text-center">
+            <a
+              class="btn btn-secondary"
+              href="/profile"
+              style="color: white; background-color: 
+#262d3d"
+              >Return to Profile</a
+            >
+            <a
+              class="btn btn-secondary"
+              href="/feed"
+              style="color: white; background-color: #262d3d"
+              >Return to Feed</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
+

@@ -116,30 +116,30 @@ createPost: async (req, res) => {
     }
   },
 
-  // filterPosts: async (req, res) => {
-  //   try {
-  //     const { state, industry } = req.query;
-  //     let query = {};
+  filterPosts: async (req, res) => {
+    try {
+      const { state, industry } = req.query;
+      let query = {};
 
-  //     if (state && state !== "All States") {
-  //       query.state = state;
-  //     }
-  //     if (industry && industry !== "All Industries") {
-  //       query.industry = industry;
-  //     }
+      if (state && state !== "All States") {
+        query.state = state;
+      }
+      if (industry && industry !== "All Industries") {
+        query.industry = industry;
+      }
 
-  //     const filteredPosts = await Post.find(query);
+      const filteredPosts = await Post.find(query);
 
-  //     res.render("filtered_posts", {
-  //       selectedState: state || "All States",
-  //       selectedIndustry: industry || "All Industries",
-  //       filteredPosts: filteredPosts,
-  //     });
-  //   } catch (err) {
-  //     console.error("Error filtering posts:", err);
-  //     res.status(500).send("Error filtering posts. Please try again later.");
-  //   }
-  // },
+      res.render("filtered_posts", {
+        selectedState: state || "All States",
+        selectedIndustry: industry || "All Industries",
+        filteredPosts: filteredPosts,
+      });
+    } catch (err) {
+      console.error("Error filtering posts:", err);
+      res.status(500).send("Error filtering posts. Please try again later.");
+    }
+  },
 
   
 };

@@ -1,8 +1,9 @@
-// const express = require("express");
-// const router = express.Router();
-// const postsController = require("../controllers/posts"); 
+// routes/filter.js
 
-// // Define route to handle GET requests to /filtered_posts
-// router.get("/filtered_posts", postsController.filterPosts);
+const express = require("express");
+const router = express.Router();
+const UserController = require("../controllers/users"); // Corrected case
 
-// module.exports = router;
+router.get("/filter", UserController.filterUsers);
+
+module.exports = router;

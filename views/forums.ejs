@@ -1,0 +1,49 @@
+<%- include('partials/header') -%>
+
+<!-- Forums Section -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2>Forums</h2>
+      <!-- Display forums -->
+      <% forums.forEach(forum => { %>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= forum.title %></h5>
+          <p class="card-text"><%= forum.description %></p>
+          <!-- Display creation date -->
+          <p>Created at: <%= forum.createdAt.toDateString() %></p>
+          <a
+            href="/forums/<%= forum._id %>"
+            class="btn btn-primary"
+            style="background-color: #262d3d"
+            >View Forum</a
+          >
+        </div>
+      </div>
+      <% }); %>
+
+      <!-- Return to Feed/Profile Section -->
+      <div class="row justify-content-center mt-5" style="margin-bottom: 20px">
+        <div class="col-6">
+          <div class="mx-auto text-center">
+            <a
+              class="btn btn-secondary"
+              href="/profile"
+              style="color: white; background-color: #262d3d"
+              >Return to Profile</a
+            >
+            <a
+              class="btn btn-secondary"
+              href="/feed"
+              style="color: white; background-color: #262d3d"
+              >Return to Feed</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

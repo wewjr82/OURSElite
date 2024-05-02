@@ -1,0 +1,39 @@
+<%- include('partials/header') -%>
+
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body" style="text-align: center">
+          <h1 class="card-title">No Users Found</h1>
+          <p class="card-text">
+            Sorry, no users matching the specified criteria were found.
+          </p>
+          <!-- You can add more content or links here as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Return to Feed/Profile Section -->
+  <div class="row justify-content-center mt-5" style="margin-bottom: 20px">
+    <div class="col-6">
+      <div class="mx-auto text-center">
+        <a
+          class="btn btn-secondary"
+          href="/profile"
+          style="color: white; background-color: #45526e"
+          >Return to Profile</a
+        >
+        <a
+          class="btn btn-secondary"
+          href="/feed"
+          style="color: white; background-color: #45526e"
+          >Return to Feed</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
