@@ -24,8 +24,7 @@
           <a
             href="/logout"
             class="btn btn-primary"
-            style="background-color: 
-#262d3d"
+            style="background-color: #262d3d"
             >Logout</a
           >
         </div>
@@ -61,8 +60,7 @@
             <button
               type="submit"
               class="btn btn-primary"
-              style="background-color: 
-#262d3d"
+              style="background-color: #262d3d"
             >
               Submit
             </button>
@@ -71,7 +69,7 @@
       </div>
     </div>
 
-    <!-- Right Column: Recent Posts and Community Feed -->
+    <!-- Right Column: Recent Posts, Community Feed, and Calendar -->
     <div class="col-lg-8">
       <!-- Recent Posts -->
       <div class="card">
@@ -103,8 +101,7 @@
           <a
             href="/feed"
             class="btn btn-primary"
-            style="background-color: 
-#262d3d"
+            style="background-color: #262d3d"
             >View Community Feed</a
           >
         </div>
@@ -114,40 +111,100 @@
       <div class="card mt-4">
         <div class="card-body text-center">
           <h5 class="card-title">New Pages</h5>
-          <!-- <a
-            href="/forums"
-            class="btn btn-primary"
-            style="background-color: #45526e"
-            >Visit Forums</a
-          > -->
 
           <a
             href="/forums/create"
             class="btn btn-primary"
-            style="background-color: 
-#262d3d"
+            style="background-color: #262d3d"
             >Create Forum</a
           >
-          <!-- <a
-            href="/resources"
-            class="btn btn-primary"
-            style="background-color: #45526e"
-            >Explore Resources</a
-          > -->
 
-          <!-- New button -->
           <a
             href="/resources/create"
             class="btn btn-primary"
-            style="background-color: 
-#262d3d"
+            style="background-color: #262d3d"
             >Create Resource</a
           >
-         
         </div>
       </div>
+
+      <!-- Event Creation Form -->
+      <form
+        id="eventForm"
+        style="
+          margin-top: 20px;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #fff;
+        "
+      >
+        <div style="margin-bottom: 10px">
+          <label for="title" style="display: block">Event Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            style="
+              width: 100%;
+              padding: 5px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+            "
+          />
+        </div>
+        <div style="margin-bottom: 10px">
+          <label for="start" style="display: block">Start Date:</label>
+          <input
+            type="datetime-local"
+            id="start"
+            name="start"
+            required
+            style="
+              width: 100%;
+              padding: 5px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+            "
+          />
+        </div>
+        <div style="margin-bottom: 10px">
+          <label for="end" style="display: block">End Date:</label>
+          <input
+            type="datetime-local"
+            id="end"
+            name="end"
+            style="
+              width: 100%;
+              padding: 5px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+            "
+          />
+        </div>
+        <button
+          type="submit"
+          style="
+            background-color: #262d3d;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+          "
+        >
+          Create Event
+        </button>
+        
+      </form>
+       <!-- FullCalendar -->
+      <div id="calendar"></div>
     </div>
   </div>
 </div>
 
+
+
 <%- include('partials/footer') -%>
+

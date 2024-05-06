@@ -1,6 +1,5 @@
 // Import modules
 const express = require("express");
-// const socketIo = require("socket.io");
 const http = require("http"); // Import the HTTP module
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -17,8 +16,8 @@ const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comments");
 const filterRoutes = require("./routes/filter"); // Import filter routes
 const forumRoutes = require("./routes/forums"); // Import forum routes
-const resourceRoutes = require("./routes/resources"); // Import resource routes
-
+const resourceRoutes = require("./routes/resources"); // Import resource 
+const eventRoutes = require("./routes/events");
 
 const app = express();
 const server = http.createServer(app);
@@ -75,6 +74,10 @@ app.use("/comment", commentRoutes);
 app.use("/", filterRoutes);
 app.use("/forums", forumRoutes);
 app.use("/resources", resourceRoutes);
+app.use("/calendar", eventRoutes);
+
+
+
 
 // Error handling middleware (should be placed after other route and middleware definitions)
 app.use((err, req, res, next) => {
