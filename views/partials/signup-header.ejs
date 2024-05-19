@@ -47,6 +47,13 @@
         background-color: #2e374a;
         border-radius: 5px;
       }
+
+      /* Media query to hide the image on mobile devices */
+      @media (max-width: 768px) {
+        img {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body style="background-color: #e8eaee">
@@ -58,6 +65,7 @@
               src="/imgs/facebook_cover_photo_2.png"
               alt="OURS Elite Logo"
               style="max-width: 350px; height: auto"
+              loading="lazy"
             />
           </a>
         </div>
